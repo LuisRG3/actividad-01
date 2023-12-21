@@ -49,7 +49,12 @@ const Carrito = () => {
       }
   return (
     <>
-    <h1 className='carrito-titulo'>Carrito de Compras</h1>
+      <div className='carrito-cabecera'>
+        <h1 className='carrito-titulo'>Carrito de Compras</h1>
+        <Link to={`/productos`}>
+          <button className="carrito-productos-data-button-agregar">Agregar</button>
+        </Link>
+      </div>
     <div className="carrito-productos">
       {carritoItems.map((item, index) => (
                     <>

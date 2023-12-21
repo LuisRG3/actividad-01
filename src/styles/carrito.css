@@ -140,3 +140,30 @@
   color: #333;
   margin-bottom: 20px;
 }
+
+
+
+
+.carrito-cabecera {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between; /* Coloca los elementos al extremo izquierdo y derecho */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.carrito-titulo {
+  flex-grow: 1; /* Permite que el título ocupe el espacio restante */
+  text-align: center; /* Centra el texto del título horizontalmente */
+}
+
+.carrito-productos-data-button-agregar {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+  font-weight: bold;
+}
