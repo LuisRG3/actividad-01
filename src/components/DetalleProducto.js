@@ -121,7 +121,7 @@ const DetalleProducto = () => {
         <label className="producto-details-data-label">Total: </label>
         <span>S/. {calcularTotal()}</span>
         <br />
-        <button className="producto-details-data-button-agregar" onClick={handleAgregarAlCarrito}>Agregar al Carrito</button>
+        <button className="producto-details-data-button-agregar" onClick={handleAgregarAlCarrito}>Agregar</button>
         <button className="producto-details-data-button-cancelar" onClick={() => navigate('/productos')}>Cancelar</button>
       </p>
     </div>

@@ -49,7 +49,7 @@ const LoginPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin}>Iniciar sesión</button>
+        <button onClick={handleLogin}>Login</button>
         
         {/* Botón "Limpiar" */}
         <button onClick={handleClear}>Limpiar</button>

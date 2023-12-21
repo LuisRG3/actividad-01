@@ -1,13 +1,13 @@
 .carrito-titulo{
     text-align: center;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .carrito-productos {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 40%;
+    width: 50%;
     margin: auto;
     font-family: 'Roboto', sans-serif;
   }
@@ -42,11 +42,11 @@
     color: #504f4f;
     line-height: 1.5;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .carrito-productos-data-nombre {
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 30px;
     margin-top: 1px;
   }
@@ -62,7 +62,7 @@
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 30px;
   }
   
@@ -76,7 +76,7 @@
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 30px;
     margin-left: 20px;
   }
@@ -86,27 +86,27 @@
   }
 
   .carrito-productos-total{
-    width: 92%;
+    width: 93%;
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    text-align: right;
     height: 100px;
     display: flex; /* Agrega flexbox */
     align-items: center; /* Centra verticalmente los elementos */
-    justify-content: center; /* Centra horizontalmente los elementos */
+    justify-content: right; /* Centra horizontalmente los elementos */
   }
   .carrito-productos-total-label{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px;
   }
 
 .carrito-productos-total-monto{
-    font-size: 20px;
+    font-size: 18px;
 }
 .carrito-productos-total-button-comprar{
     padding: 10px 20px;
@@ -114,8 +114,9 @@
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 20px;
+    font-weight: bold;
 }
 .carrito-productos-total-button-eliminar{
     padding: 10px 20px;
@@ -123,6 +124,19 @@
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 20px;
+    font-weight: bold;
+}
+
+.carrito-vacio {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 200px;
+}
+
+.carrito-vacio h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
 }

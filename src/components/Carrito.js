@@ -40,6 +40,13 @@ const Carrito = () => {
         setCarritoItems(nuevoCarrito); // Actualizar el estado local del carrito
       };
 
+      if (!(carritoItems.length>=1)) {
+        return(
+          <div className="carrito-vacio">
+            <h1>No hay productos</h1>
+          </div>
+        )
+      }
   return (
     <>
     <h1 className='carrito-titulo'>Carrito de Compras</h1>
@@ -80,7 +87,7 @@ const Carrito = () => {
                 Comprar
             </button>
             <button className="carrito-productos-total-button-eliminar" onClick={eliminarCompra}>
-                Eliminar Compra
+                Cancelar
             </button>
         </div>
     </div>
