@@ -2,8 +2,8 @@ import imagen1 from '../imagenes/perfil/carnet.jpg';
 
 const users = [
     { 
-      username: 'yamis19', 
-      password: '1234',
+      username: 'adm', 
+      password: '123',
       imagen: imagen1,
       nombre: 'Luis Alberto',
       apellidoPaterno:'Ruiz',
