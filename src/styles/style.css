@@ -1,0 +1,77 @@
+/* Estilos para el contenedor principal */
+.inicio-container {
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Estilos para el encabezado */
+  .inicio-container h2 {
+    font-size: 30px;
+    color: #54007a;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el texto de párrafo */
+  .inicio-container p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para los enlaces */
+  .inicio-container a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  /* Estilos para los enlaces cuando se les pasa el mouse por encima */
+  .inicio-container a:hover {
+    color: #0056b3;
+  }
+
+
+
+  /* Estilos para el contenedor principal */
+.quienes-container {
+  max-width: 90%;
+  margin: auto;
+  padding: 20px;
+  text-align: justify;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos para el encabezado */
+.quienes-container h2 {
+  font-size: 30px;
+  color: #54007a;
+  margin-bottom: 30px;
+}
+
+.quienes-container-subtitulos{
+  font-size: 20px;
+  color: #321a3d;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+/* Estilos para el texto de párrafo */
+.quienes-container-data {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los enlaces */
+.quienes-container a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Estilos para los enlaces cuando se les pasa el mouse por encima */
+.quienes-container a:hover {
+  color: #0056b3;
+}

@@ -1,0 +1,68 @@
+/* Estilos para el contenedor del formulario de inicio de sesión */
+.login-body{
+    display: flex; /* Usar display flex para centrar vertical y horizontalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    max-width: 90%;
+    height: 400px;
+    margin: auto;
+    padding: 20px;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+    width: 20%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  /* Estilos para el título "Iniciar sesión" */
+  .login-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Estilos para los campos de entrada */
+  .login-container input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Estilos para el botón de inicio de sesión */
+  .login-container button {
+    margin: 10px;
+    width: 30%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilos para el botón de inicio de sesión al pasar el mouse por encima */
+  .login-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para el mensaje de error */
+  .login-error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  

@@ -1,0 +1,47 @@
+/* Estilos para el contenedor principal */
+.perfil-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    text-align: center;
+  }
+  
+  .perfil-info {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .perfil-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+    margin-left: 60px; 
+  }
+  
+  .perfil-datos {
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  
+  .perfil-datos h2 {
+    font-size: 25px;
+    margin-top: 1px;
+    margin-bottom: 20px;
+  }
+  
+  .perfil-datos p {
+    margin: 8px 0;
+  }
+  
+  /* Estilos para las etiquetas */
+  .perfil-datos label {
+    font-weight: bold;
+    color: #333;
+  }
+  

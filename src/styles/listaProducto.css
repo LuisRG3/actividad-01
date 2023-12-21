@@ -1,0 +1,116 @@
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: 40vh;
+  }
+
+  /* Agrega esto a tu archivo de estilos CSS */
+.contenedor-animacion{
+    width: 50%;
+    height: 300px;
+    margin-top: 100px;
+}
+
+.loading-animation {
+    margin: auto;
+    width: 140px;
+    height: 140px;
+    border: 12px solid #ccc;
+    border-top: 12px solid #007bff; /* Color del borde superior */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Animación de rotación */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+  /* Estilos para el contenedor de la barra de búsqueda */
+.barra-busqueda {
+  display: flex; /* Mostrar los inputs en una fila */
+  gap: 10px; /* Espacio entre los inputs */
+  align-items: center; /* Alinear verticalmente al centro */
+}
+
+/* Estilos para los inputs de búsqueda dentro del contenedor */
+.barra-busqueda input {
+  flex: 1; /* Los inputs ocupan el espacio disponible en la fila */
+}
+
+
+/* Estilos para los inputs de búsqueda */
+.barra-busqueda-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Estilos cuando se enfoca el input */
+.barra-busqueda-input{
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos específicos para el input de número */
+.barra-busqueda-input{
+  appearance: textfield;
+  -webkit-appearance: textfield; /* Para navegadores WebKit como Chrome y Safari */
+}
+
+/* Estilos para el placeholder del input */
+.barra-busqueda-input::placeholder {
+  color: #999;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.pagination-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.pagination-item {
+  margin: 0 4px;
+}
+
+.pagination-item button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-item button:hover {
+  background-color: #ddd;
+}
+
+.pagination-item.active button {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  cursor: default;
+}

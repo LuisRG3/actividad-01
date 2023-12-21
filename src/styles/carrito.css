@@ -1,0 +1,128 @@
+.carrito-titulo{
+    text-align: center;
+    font-size: 40px;
+}
+
+.carrito-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 40%;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .carrito-productos-image {
+    text-align: center;
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .carrito-productos img{
+    width: 90%;
+    height: 90%;
+    padding: 10px;
+  }
+  
+  .carrito-productos-data {
+    width: 50%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .carrito-productos-data p{
+    color: #504f4f;
+    line-height: 1.5;
+    text-align: left;
+    font-size: 18px;
+  }
+  
+  .carrito-productos-data-nombre {
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: 1px;
+  }
+  
+  .carrito-productos-data-label {
+    font-weight: bold;
+  }
+
+  
+  .carrito-productos-data-button-editar {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+  
+  .carrito-productos-data-button-editar :hover {
+    background-color: #0056b3;
+  }
+  
+  .carrito-productos-data-button-eliminar {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  
+  .carrito-productos-data-button-eliminar :hover {
+    background-color: #0056b3;
+  }
+
+  .carrito-productos-total{
+    width: 92%;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    height: 100px;
+    display: flex; /* Agrega flexbox */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+  }
+  .carrito-productos-total-label{
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+.carrito-productos-total-monto{
+    font-size: 20px;
+}
+.carrito-productos-total-button-comprar{
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.carrito-productos-total-button-eliminar{
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 20px;
+}
