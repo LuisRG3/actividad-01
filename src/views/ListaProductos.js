@@ -50,12 +50,18 @@ import '../styles/listaProducto.css';
     setCategoria(e.target.value);
     setCurrentPage(1);
   };
-    
+
+
   const handlePrecioChange = (e) => {
-    setPrecio(e.target.value);
+    const newPrecio = parseFloat(e.target.value);
+  
+    if (!isNaN(newPrecio) && newPrecio >= 0) {
+      setPrecio(newPrecio);
+    }else{
+      setPrecio('');
+    }
     setCurrentPage(1);
   };
-
   return (
         <div>
           <div className="barra-busqueda">
