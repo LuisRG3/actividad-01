@@ -34,7 +34,7 @@ const ListaProductos = () => {
             targetMethod: 'GET',
             queryParams: {
               nombre: [nombre],
-              aggregate:[true]
+              aggregate:[false]
             }
           })
         });
