@@ -1,19 +1,18 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Producto } from "../components/Producto";
-import { Agregados } from "../components/Agregados";
 import { TiendaContext } from "../context/TiendaContext";
 import '../styles/listaProducto.css';
 
 const ListaProductos = () => {
   const [nombre, setNombre] = useState('');
+  const [descripcionLarga, setdescripcionLarga] = useState('');
   const [categoria, setCategoria] = useState('');
-  const [precio, setPrecio] = useState('');
   const [agregados, setAgregados] = useState([]); // Estado para almacenar los agregados
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1); // Página actual
   const [itemsPerPage] = useState(24); // Cantidad de elementos por página
-  const { productos, setProductos } = useContext(TiendaContext);
+  const {productos, setProductos} = useContext(TiendaContext);
 
   useEffect(() => {
     const currentUserData = localStorage.getItem('currentUser');
@@ -34,6 +33,8 @@ const ListaProductos = () => {
             targetMethod: 'GET',
             queryParams: {
               nombre: [nombre],
+              categoria:[categoria],
+              descripcionLarga:[descripcionLarga],
               aggregate:[false]
             }
           })
@@ -44,30 +45,52 @@ const ListaProductos = () => {
         }
 
         const data = await response.json();
-        setProductos([]);
         setProductos(data.products); // Actualiza el estado de productos con los datos obtenidos
-        setAgregados(data.aggs); // Actualiza el estado de agregados con los datos obtenidos
       } catch (error) {
         console.error('Error fetching data:', error);
-        // Si hay un error, podrías querer manejarlo de alguna manera, como mostrar un mensaje al usuario.
       }
     };
 
     fetchData();
-  }, [nombre, setProductos]);
+  }, [nombre,categoria,descripcionLarga, setProductos]);
 
-  const productosFiltrados = productos.filter((producto) => {
-    return (
-      producto.nombre.toLowerCase().includes(nombre.toLowerCase()) &&
-      producto.categoria.toLowerCase().includes(categoria.toLowerCase()) &&
-      producto.precio.toString().includes(precio)
-    );
-  });
+  useEffect(() => {
+    const fetchCatalago = async () => {
+      try {
+        const response = await fetch('http://localhost:8762/ms-buscador-products-elasticsearch/products', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            targetMethod: 'GET',
+            queryParams: {
+              nombre: [nombre],
+              categoria:[categoria],
+              descripcionLarga:[descripcionLarga],
+              aggregate:[true]
+            }
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        setAgregados(data.aggs); // Actualiza el estado de agregados con los datos obtenidos
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchCatalago();
+  }, [nombre,descripcionLarga,categoria, setProductos]);
 
   // Calcular los índices de los productos para la página actual
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentProducts = productosFiltrados.slice(indexOfFirstItem, indexOfLastItem);
+  const currentProducts = productos.slice(indexOfFirstItem, indexOfLastItem);
 
   // Cambiar de página
   const paginate = (pageNumber) => {
@@ -79,23 +102,20 @@ const ListaProductos = () => {
     setNombre(e.target.value);
     setCurrentPage(1);
   };
-
-  const handleCategoriaChange = (e) => {
-    setCategoria(e.target.value);
+  const handleDescripcionLargaChange = (e) => {
+    setdescripcionLarga(e.target.value);
     setCurrentPage(1);
   };
 
-  const handlePrecioChange = (e) => {
-    const newPrecio = parseFloat(e.target.value);
-
-    if (!isNaN(newPrecio) && newPrecio >= 0) {
-      setPrecio(newPrecio);
-    } else {
-      setPrecio('');
-    }
-    setCurrentPage(1);
-  };
-
+// Función para manejar el clic en los elementos de la lista de agregados
+const handleAgregadoClick = async (e, key) => {
+  e.preventDefault(); // Evita que el navegador siga el enlace
+  try {
+    setCategoria(key)
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
   return (
     <div>
       <div className="barra-busqueda">
@@ -109,40 +129,51 @@ const ListaProductos = () => {
         <input
           className="barra-busqueda-input categoria"
           type="text"
-          placeholder="Buscar por categoría"
-          value={categoria}
-          onChange={handleCategoriaChange}
-        />
-        <input
-          className="barra-busqueda-input precio"
-          type="number"
-          placeholder="Buscar por precio"
-          value={precio}
-          onChange={handlePrecioChange}
+          placeholder="Buscar por descripcion"
+          value={descripcionLarga}
+          onChange={handleDescripcionLargaChange}
         />
       </div>
-      <div className="agregados-lista">
-        <h3>Categorias</h3>
-          {agregados.map(aggs => <Agregados key={aggs.key} agregados={aggs} />)}
-      </div>
+      
       <main>
-        <div className='contenedor-productos'>
-          {
-            productos.length > 0 ? (
-              currentProducts.map(producto => <Producto key={producto.codigo} productos={producto} />)
-            ) : (
-              <div className='contenedor-animacion'>
-                <div className='loading-animation'></div>
-              </div>
-            )
-          }
+      <div className='contenedor-productos-total'>
+        <div className="agregados-lista">
+          
+          <ul>
+          <h3>Categoria</h3>
+          <li>
+                <a href="#.com" onClick={(e) => handleAgregadoClick(e,"")}>
+                  Borrar
+                </a>
+              </li>
+            {agregados.map((agregado, index) => (
+              <li key={index}>
+                <a href={agregado.uri} onClick={(e) => handleAgregadoClick(e, agregado.key)}>
+                  {`${agregado.key} (${agregado.count})`}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+          <div className='contenedor-productos'>
+            {
+              productos.length > 0 ? (
+                currentProducts.map(producto => <Producto key={producto.codigo} productos={producto} />)
+              ) : (
+                <div className='contenedor-animacion'>
+                  <div className='loading-animation'></div>
+                </div>
+              )
+            }
+          </div>
         </div>
       </main>
       <div className="pagination">
         {/* Botones de paginación */}
-        {productosFiltrados.length > itemsPerPage && (
+        {productos.length > itemsPerPage && (
           <ul className="pagination-list">
-            {Array(Math.ceil(productosFiltrados.length / itemsPerPage)).fill().map((_, i) => (
+            {Array(Math.ceil(productos.length / itemsPerPage)).fill().map((_, i) => (
               <li key={i} className={`pagination-item ${currentPage === i + 1 ? 'active' : ''}`}>
                 <button onClick={() => paginate(i + 1)}>{i + 1}</button>
               </li>

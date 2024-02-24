@@ -1,18 +1,15 @@
 import React from 'react';
-import {useProductos} from "./hooks/useProductos";
-import {TiendaContext} from "./context/TiendaContext";
+import {TiendaProvider } from "./context/TiendaContext";
 import GlobalRouter from './routes/GlobalRouter';
 import Footer from './components/Footer';
 
 function App() {
-  const productos = useProductos();
 
   return (
-    
-    <TiendaContext.Provider value={{productos}}>
+    <TiendaProvider>
       <GlobalRouter />
       <Footer />
-    </TiendaContext.Provider>
+     </TiendaProvider>
   );
 }
 

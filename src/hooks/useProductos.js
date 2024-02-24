@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 export const useProductos = () => {
-
     const [productos, setProductos] = useState([]);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -22,7 +22,6 @@ export const useProductos = () => {
                 }
 
                 const data = await response.json();
-                // Suponiendo que el array está en la propiedad 'products' del objeto de respuesta
                 setProductos(data.products);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -33,5 +32,5 @@ export const useProductos = () => {
         fetchData();
     }, []);
 
-    return productos;
+    return [productos, setProductos]; // Devolvemos tanto los productos como la función para establecer los productos
 };
