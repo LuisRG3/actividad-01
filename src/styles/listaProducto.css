@@ -1,13 +1,12 @@
 .contenedor-productos-total {
   display: flex;
-  min-height: 40vh;
 }
 
 .contenedor-productos {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  min-height: 40vh;
+  min-height: 30vh;
   align-items: flex-start; /* Alinear los elementos al inicio */
 }
 
